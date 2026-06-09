@@ -1,0 +1,2566 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>web/app & brand designer | portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Russo+One&family=Oswald:wght@700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+    body {
+      background: #fff;
+      color: #000;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .page-wrap {
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #eee;
+    }
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+      text-decoration: none;
+      padding: 8px 12px;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: #000; }
+
+    .nav-logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 26px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .nav-logo .logo-star {
+      font-size: 20px;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 20px;
+      border: 1.5px solid #000;
+      border-radius: 100px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover {
+      background: #000;
+      color: #fff;
+    }
+    .nav-links .btn-work {
+      background: #000;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 12px;
+      border-radius: 0;
+      border-color: #000;
+      padding: 10px 24px;
+    }
+    .nav-links .btn-work::before { content: '< '; }
+    .nav-links .btn-work::after  { content: ' >'; }
+    .nav-links .btn-work:hover {
+      background: #fff;
+      color: #000;
+      border-color: #000;
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      height: 100vh;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    /* Левая часть — 58.6% (золотое сечение) */
+    .hero-left {
+      flex: 0 0 58.6%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 56px 60px 48px;
+      gap: 0;
+    }
+
+    /* Метка над заголовком */
+    .hero-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1.5px;
+      background: #888;
+    }
+
+    .hero-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(100px, 13.5vw, 220px);
+      line-height: 0.88;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin: 0;
+    }
+
+    /* H2 — размер H1 ÷ 1.618 */
+    .hero-desc {
+      margin-top: 36px;
+    }
+    .hero-desc p {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.618;
+      color: #222;
+      max-width: 520px;
+    }
+
+    /* CTA */
+    .hero-cta {
+      margin-top: 52px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .btn-cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      background: transparent;
+      color: #999;
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      padding: 14px 28px;
+      border-radius: 0;
+      border: 1.5px solid #ccc;
+      transition: border-color 0.25s, color 0.25s, transform 0.25s;
+      white-space: nowrap;
+    }
+    .btn-cta-primary:hover {
+      border-color: #999;
+      color: #555;
+      transform: translateY(-2px);
+    }
+    .btn-cta-bracket {
+      color: #bbb;
+      font-size: 20px;
+      font-weight: 300;
+      transition: color 0.25s;
+    }
+    .btn-cta-primary:hover .btn-cta-bracket { color: #999; }
+    .btn-cta-text {
+      padding: 0 6px;
+    }
+
+    .hero-scroll-hint {
+      font-size: 13px;
+      color: #aaa;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+    }
+
+    /* Правая часть — 41.4% (золотое сечение) */
+    .hero-photo {
+      flex: 0 0 41.4%;
+      align-self: stretch;
+      overflow: visible;
+      position: relative;
+      padding: 0 40px 48px 0;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 0;
+    }
+
+    /* ─── PRINCIPLES ─── */
+    #principles {
+      padding: 80px 48px 100px;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    /* FACTS section layout */
+    #principles {
+      display: grid;
+      grid-template-columns: calc(58.6vw - 108px) 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .principles-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .principles-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .principles-label {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(80px, 12vw, 200px);
+      line-height: 0.85;
+      text-transform: uppercase;
+      letter-spacing: -4px;
+      color: #000;
+      margin-bottom: 16px;
+    }
+
+    .principles-sub {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .principles-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid #ddd;
+    }
+
+    .prin-card {
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 28px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+    .prin-card:nth-child(2),
+    .prin-card:nth-child(4) {
+      border-right: none;
+    }
+    .prin-card:nth-child(3),
+    .prin-card:nth-child(4) {
+      border-bottom: none;
+    }
+
+    .prin-num {
+      font-size: 13px;
+      color: #aaa;
+      font-weight: 400;
+      margin-bottom: auto;
+    }
+
+    .prin-body {
+      margin-top: 40px;
+    }
+
+    .prin-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .prin-desc {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.55;
+      color: #444;
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      padding: 80px 0 120px;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    /* Grid: 420px left + 80px gap + 600px right — центрированы по странице */
+    .about-inner {
+      display: grid;
+      grid-template-columns: 420px 600px;
+      gap: 80px;
+      justify-content: center;
+      align-items: start;
+    }
+
+    /* ── Левая колонка: heading + декоративные элементы ── */
+    .about-left {
+      position: relative;
+    }
+
+    /* "hi" — 50px Inter, над heading, центр над первой строкой */
+    .about-deco-hi {
+      font-family: 'Inter', sans-serif;
+      font-size: 50px;
+      font-weight: 400;
+      line-height: 50px;
+      color: #000;
+      padding-left: 150px;
+      margin-bottom: 9px;
+    }
+
+    /* Враппер heading: relative, чтобы "hey" встало абсолютно */
+    .about-heading-wrap {
+      position: relative;
+    }
+
+    /* Heading: 80px Inter 700, line-height 70px — 3 строки = 210px */
+    .about-heading {
+      font-family: 'Inter', sans-serif;
+      font-size: 80px;
+      font-weight: 700;
+      line-height: 70px;
+      text-transform: uppercase;
+      color: #000;
+      margin: 0;
+    }
+
+    /* "hey" — 50px Inter, абсолютно справа от первой строки heading */
+    .about-deco-hey {
+      position: absolute;
+      top: 0;
+      left: 360px;
+      font-family: 'Inter', sans-serif;
+      font-size: 50px;
+      font-weight: 400;
+      line-height: 50px;
+      color: #000;
+    }
+
+    /* "<привет>" — прямо под heading (margin-top: 0), со смещением вправо */
+    .about-deco-privet {
+      font-family: 'Inter', sans-serif;
+      font-size: 50px;
+      font-weight: 400;
+      line-height: 50px;
+      color: #000;
+      padding-left: 90px;
+      margin-top: 0;
+    }
+
+    /* ── Правая колонка ── */
+    /* padding-top = hi(50) + gap(9) + 2 строки heading(140) = 199px
+       → "hello," встаёт на уровень начала 3-й строки heading */
+    .about-right {
+      padding-top: 199px;
+    }
+
+    /* "hello," — точно как в референсе: 50px Inter 400 */
+    .about-greeting {
+      font-family: 'Inter', sans-serif;
+      font-size: 50px;
+      font-weight: 400;
+      line-height: 50px;
+      color: #000;
+      margin: 0 0 20px 0;
+    }
+
+    /* Параграфы: 24px Inter 400, как в референсе */
+    .about-text-block {
+      margin-bottom: 24px;
+    }
+    .about-text-block:last-child {
+      margin-bottom: 0;
+    }
+    .about-text-block p {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 30px;
+      color: #000;
+    }
+    .about-text-block strong {
+      font-weight: 700;
+    }
+
+    /* "Смотреть видео-визитку ↗" — аналог "МОИ НАВЫКИ ↗", right-aligned */
+    .about-video-btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: #000;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .about-video-btn:hover { opacity: 0.5; }
+
+    /* ── Статы — строка под основной сеткой ── */
+    .about-stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid #e8e8e8;
+      margin-top: 80px;
+    }
+    .about-stat {
+      padding: 36px 24px;
+      border-right: 1px solid #e8e8e8;
+    }
+    .about-stat:last-child {
+      border-right: none;
+    }
+    .about-stat-num {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(40px, 3.5vw, 56px);
+      line-height: 1;
+      color: #000;
+      margin-bottom: 8px;
+    }
+    .about-stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #aaa;
+      text-transform: uppercase;
+    }
+
+    /* ─── SKILLS ─── */
+    #skills {
+      padding: 40px 40px 100px;
+    }
+
+    .skills-label {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(60px, 8vw, 120px);
+      text-transform: uppercase;
+      line-height: 0.9;
+      margin-bottom: 60px;
+    }
+
+    .skills-items {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .skill-item {
+      width: 33.33%;
+      min-width: 260px;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      font-family: 'Anton', sans-serif;
+      font-size: 48px;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    /* UX/UI — yellow balloon */
+    .skill-ux {
+      background: radial-gradient(ellipse at 35% 30%, #ffe066 0%, #f0c000 40%, #c89000 80%, #a07000 100%);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      position: relative;
+      box-shadow: inset -20px -20px 40px rgba(0,0,0,0.15), inset 10px 10px 20px rgba(255,255,200,0.4), 0 10px 30px rgba(200,150,0,0.3);
+    }
+    .skill-ux::after {
+      content: '';
+      position: absolute;
+      bottom: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 24px;
+      background: #c89000;
+    }
+
+    /* WEB DESIGN — blue denim flower */
+    .skill-web {
+      background: radial-gradient(circle at 40% 40%, #6bbfff 0%, #2288ee 50%, #0055cc 100%);
+      border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+      box-shadow: inset -15px -15px 30px rgba(0,0,0,0.2), inset 8px 8px 16px rgba(200,230,255,0.3), 0 10px 30px rgba(0,100,200,0.25);
+      animation: wobble 4s ease-in-out infinite alternate;
+    }
+    @keyframes wobble {
+      0% { border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%; }
+      100% { border-radius: 55% 45% 40% 60% / 45% 55% 50% 50%; }
+    }
+
+    /* MOBILE DESIGN — red raspberry */
+    .skill-mobile {
+      background: radial-gradient(circle at 40% 30%, #ff6666 0%, #dd1111 50%, #990000 100%);
+      border-radius: 50%;
+      box-shadow: inset -15px -15px 30px rgba(0,0,0,0.2), inset 8px 8px 16px rgba(255,180,180,0.3), 0 10px 30px rgba(200,0,0,0.25);
+    }
+    /* bumps for raspberry */
+    .skill-mobile::before {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      background: repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 12px, rgba(0,0,0,0.07) 12px, rgba(0,0,0,0.07) 14px);
+    }
+
+    .skill-item span {
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    /* ─── USEFUL ─── */
+    #useful {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 90px 48px 90px;
+    }
+
+    .useful-bg {
+      position: absolute;
+      inset: 0;
+      background: url('image-1780757408452.png') center center / cover no-repeat;
+      filter: blur(4px) brightness(0.45);
+      transform: scale(1.05);
+      z-index: 0;
+    }
+
+    .useful-bottom-text {
+      position: absolute;
+      bottom: 90px;
+      left: 48px;
+      z-index: 2;
+      color: #fff;
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(60px, 9vw, 130px);
+      font-weight: 400;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .useful-cards-wrap {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: flex-end;
+      gap: 24px;
+      padding-right: 100px;
+    }
+
+    .useful-card {
+      background: #fff;
+      border-radius: 0;
+      overflow: hidden;
+      width: 280px;
+      flex-shrink: 0;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      transition: transform 0.2s;
+    }
+    .useful-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .useful-card-img {
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .useful-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .useful-img-tg { background: #111; }
+    .useful-img-cv { background: #111; }
+    .useful-img-articles { background: #111; }
+
+    /* Phone mockup */
+    .useful-phone {
+      width: 120px;
+      height: 190px;
+      background: #1a1a1a;
+      border-radius: 22px;
+      padding: 10px 7px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .useful-phone::before {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 4px;
+      background: #333;
+      border-radius: 2px;
+    }
+    .useful-phone-screen {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px 8px 8px;
+      overflow: hidden;
+    }
+    .tg-post {
+      display: flex;
+      gap: 5px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .tg-avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2196f3, #0d47a1);
+      flex-shrink: 0;
+    }
+    .tg-lines {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-top: 3px;
+    }
+    .tg-line {
+      height: 5px;
+      background: #e0e0e0;
+      border-radius: 3px;
+    }
+    .tg-line.long   { width: 100%; }
+    .tg-line.medium { width: 72%; }
+    .tg-line.short  { width: 48%; }
+    .tg-img-preview {
+      width: 100%;
+      height: 55px;
+      background: linear-gradient(135deg, #c8b8a8, #d8cfc8);
+      border-radius: 6px;
+      margin-top: 6px;
+    }
+
+    /* CV mockup */
+    .cv-doc {
+      width: 130px;
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .cv-line { height: 6px; background: #e4e4e4; border-radius: 3px; }
+    .cv-line.head   { width: 55%; background: #111; height: 9px; margin-bottom: 6px; }
+    .cv-line.long   { width: 100%; }
+    .cv-line.medium { width: 70%; }
+    .cv-line.short  { width: 44%; }
+    .cv-divider { height: 1px; background: #ececec; margin: 3px 0; }
+
+    /* Articles mockup */
+    .articles-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding: 0 12px;
+      width: 100%;
+    }
+    .article-chip {
+      background: #fff;
+      border: 1.5px solid #ddd;
+      border-radius: 100px;
+      padding: 9px 16px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #222;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    }
+    .article-chip:nth-child(even) { align-self: flex-end; }
+
+    .useful-card-body {
+      padding: 18px 20px 24px;
+    }
+    .useful-card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 3px;
+    }
+    .useful-card-sub {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .useful-btn {
+      display: inline-block;
+      background: transparent;
+      color: #000;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 0;
+      border: 1.5px solid #000;
+      width: 100%;
+      text-align: center;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 0.3px;
+      text-transform: none;
+    }
+    .useful-btn::before { content: '< '; }
+    .useful-btn::after  { content: ' >'; }
+    .useful-btn:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    /* Карточки с фото — затемнение и hover */
+    .win-thumb-placeholder .card-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .win-thumb-placeholder .card-stats {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 24px;
+      transition: opacity 0.3s ease;
+    }
+    .win-card:hover .card-photo {
+      opacity: 1;
+    }
+    .win-card:hover .card-stats {
+      opacity: 0;
+    }
+
+    /* ─── PROJECTS ─── */
+    #projects {
+      padding: 80px 40px;
+    }
+
+    .projects-title-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    /* Фильтры */
+    .projects-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      padding: 9px 20px;
+      border: 1.5px solid #000;
+      border-radius: 0;
+      background: transparent;
+      color: #000;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .filter-btn::before { content: '< '; }
+    .filter-btn::after  { content: ' >'; }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #000;
+      color: #fff;
+    }
+    .projects-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(100px, 16vw, 240px);
+      line-height: 0.85;
+      text-transform: uppercase;
+      letter-spacing: -4px;
+      display: flex;
+      flex-direction: column;
+    }
+    .projects-gallery-link {
+      font-size: 22px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #000;
+      padding-bottom: 4px;
+      white-space: nowrap;
+    }
+
+    /* Chrome K logo */
+    .chrome-k {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle at 35% 35%, #ffffff 0%, #cccccc 30%, #888888 60%, #444444 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Anton', sans-serif;
+      font-size: 120px;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -40px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .projects-grid-area {
+      position: relative;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* Windows-style project card */
+    .win-card {
+      border: 1.5px solid #000;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      cursor: default;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    a .win-card {
+      cursor: pointer;
+    }
+    a .win-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+    .win-bar {
+      background: #f0f0f0;
+      border-bottom: 1.5px solid #000;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .win-bar.yellow-bar { background: #FFE400; }
+    .win-controls {
+      display: flex;
+      gap: 8px;
+      font-size: 16px;
+    }
+    .win-controls span {
+      width: 18px; height: 18px;
+      border: 1.5px solid #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .win-thumb {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+    }
+    .win-thumb-placeholder {
+      display: none;
+      width: 100%;
+      aspect-ratio: 16/10;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #999;
+      font-style: italic;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Almanac */
+    .thumb-almanac {
+      background: linear-gradient(160deg, #1a1030 0%, #2d1f50 40%, #1a2048 100%);
+      color: #c8b8e8;
+    }
+    .thumb-almanac-inner {
+      text-align: center;
+    }
+    .thumb-almanac-inner .alm-title {
+      font-family: serif;
+      font-size: 28px;
+      letter-spacing: 4px;
+      color: #d4c090;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+    .thumb-almanac-inner .alm-sub {
+      font-size: 12px;
+      color: #a090b0;
+      letter-spacing: 2px;
+      margin-top: 8px;
+    }
+    .star-small {
+      display: inline-block;
+      color: #d4c090;
+      font-size: 10px;
+      margin: 0 6px;
+    }
+
+    /* услуги thumb */
+    .thumb-services {
+      background: #e8f4ff;
+    }
+    .thumb-services-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    .laptop-img {
+      font-size: 80px;
+    }
+
+    /* shapito thumb */
+    .thumb-shapito {
+      background: repeating-linear-gradient(
+        90deg,
+        #4ab0f5 0px, #4ab0f5 40px,
+        #fff 40px, #fff 80px
+      );
+    }
+
+    /* valentine thumb */
+    .thumb-valentine {
+      background: linear-gradient(135deg, #ffb6c1 0%, #ff69b4 50%, #ffccd5 100%);
+    }
+
+    .win-info {
+      padding: 16px 20px 20px;
+    }
+    .win-project-name {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .win-project-type {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* ─── REVIEWS ─── */
+    #reviews {
+      background: #f0ebe3;
+      padding: 80px 48px 100px;
+      overflow: hidden;
+    }
+
+    .reviews-hero {
+      position: relative;
+      text-align: center;
+      margin-bottom: 80px;
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .reviews-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(80px, 14vw, 200px);
+      font-weight: 400;
+      text-transform: uppercase;
+      line-height: 1.0;
+      color: #1a1a2e;
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      mix-blend-mode: normal;
+    }
+
+    .reviews-tag {
+      position: absolute;
+      background: rgba(255,255,255,0.45);
+      backdrop-filter: blur(2px);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 400;
+      color: #666;
+      white-space: nowrap;
+      z-index: 1;
+    }
+    .rt-1 { top: 15%;  left: 4%; }
+    .rt-2 { top: 15%;  right: 4%; }
+    .rt-3 { top: 55%;  left: 3%; }
+    .rt-4 { top: 55%;  right: 3%; }
+    .rt-5 { bottom: 5%; left: 50%; transform: translateX(-50%); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 28px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .review-quote-icon {
+      font-size: 48px;
+      line-height: 1;
+      color: #e8623a;
+      font-family: Georgia, serif;
+      margin-bottom: 16px;
+    }
+
+    .review-text {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #333;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+
+    .review-original {
+      font-size: 10px;
+      color: #cc2200;
+      text-decoration: none;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+    .review-original::after { content: ' →'; }
+    .review-original:hover { opacity: 0.7; }
+
+    .review-divider {
+      height: 1px;
+      background: #eee;
+      margin-bottom: 16px;
+    }
+
+    .review-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      font-style: italic;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+    }
+
+    .review-role {
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: #fff;
+      padding: 80px 40px 100px;
+      text-align: center;
+    }
+
+    .contact-new-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .contact-photo-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 32px;
+    }
+
+    .contact-clip {
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .contact-photo {
+      width: 200px;
+      height: 240px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+
+    .contact-new-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(60px, 10vw, 140px);
+      font-weight: 400;
+      line-height: 0.95;
+      color: #111;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .contact-new-sub {
+      font-size: 15px;
+      color: #444;
+      font-weight: 400;
+      margin-bottom: 36px;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+    .contact-new-sub .contact-accent {
+      color: #000;
+      font-weight: 700;
+    }
+    .contact-new-sub .contact-note {
+      display: block;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+    }
+
+    .contact-new-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    .contact-new-btn {
+      display: inline-block;
+      background: transparent;
+      color: #111;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 36px;
+      border-radius: 0;
+      border: 2px solid #111;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+      text-transform: lowercase;
+    }
+    .contact-new-btn::before { content: '< '; }
+    .contact-new-btn::after  { content: ' >'; }
+    .contact-new-btn.btn-tg:hover  { background: #29a9eb; border-color: #29a9eb; color: #fff; }
+    .contact-new-btn.btn-vk:hover  { background: #0077ff; border-color: #0077ff; color: #fff; }
+    .contact-new-btn.btn-hh:hover  { background: #d6001c; border-color: #d6001c; color: #fff; }
+
+    .contact-title-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 50px;
+    }
+    .contact-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(80px, 12vw, 180px);
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+    .contact-pill {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #4CB8FF;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 16px 48px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .contact-text {
+      margin-top: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+    .contact-text p {
+      font-size: 17px;
+      color: #000;
+      line-height: 1.5;
+    }
+    .contact-text a.form-link { color: #4CB8FF; text-decoration: underline; }
+
+    .contact-catalog-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .star-compass {
+      font-size: 48px;
+      color: #888;
+    }
+    .catalog-info p {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.5;
+      max-width: 260px;
+      text-align: left;
+    }
+    .catalog-link {
+      font-size: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+      text-align: left;
+    }
+
+    .fast-order-btn {
+      display: inline-block;
+      background: #4CB8FF;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 22px 80px;
+      border-radius: 100px;
+      margin: 50px auto 0;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .fast-order-btn:hover {
+      background: #1a9ef0;
+      transform: scale(1.02);
+    }
+
+    /* ─── FORM ─── */
+    #form-section {
+      background: #4CB8FF;
+      padding: 60px 40px 80px;
+    }
+    .form-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .form-note {
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .form-field {
+      width: 100%;
+      padding: 18px 22px;
+      border: none;
+      border-radius: 100px;
+      font-size: 16px;
+      font-family: inherit;
+      background: #fff;
+      color: #555;
+      margin-bottom: 14px;
+      outline: none;
+    }
+    .form-field::placeholder { color: #aaa; }
+    .form-field:focus { box-shadow: 0 0 0 2px rgba(0,0,0,0.15); }
+
+    .form-label {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      display: block;
+      margin: 8px 0 10px;
+    }
+    .form-textarea {
+      width: 100%;
+      padding: 18px 22px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      font-family: inherit;
+      background: #fff;
+      color: #555;
+      resize: vertical;
+      min-height: 120px;
+      margin-bottom: 20px;
+      outline: none;
+    }
+    .form-textarea::placeholder { color: #aaa; }
+
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: #fff;
+      cursor: pointer;
+      margin-bottom: 28px;
+    }
+    .form-checkbox input {
+      width: 18px; height: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: #000;
+    }
+    .form-checkbox a { color: #fff; text-decoration: underline; }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      background: #000;
+      color: #fff;
+      font-family: 'Anton', sans-serif;
+      font-size: 22px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: #222; }
+
+    /* Phone field */
+    .phone-wrap {
+      position: relative;
+      margin-bottom: 14px;
+    }
+    .phone-flag {
+      position: absolute;
+      left: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #555;
+      font-size: 14px;
+    }
+    .phone-wrap input {
+      padding-left: 70px;
+    }
+
+    /* ─── COMMUNITY ─── */
+    #community {
+      background: #FF71D7;
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+      min-height: 500px;
+    }
+
+    .community-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(60px, 9vw, 140px);
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 0.88;
+      letter-spacing: -2px;
+      position: relative;
+      z-index: 2;
+    }
+    .community-join {
+      font-size: 28px;
+      font-style: italic;
+      color: #fff;
+      margin-top: 16px;
+      font-weight: 400;
+      position: relative;
+      z-index: 2;
+    }
+
+    .community-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .community-left { position: relative; z-index: 2; }
+    .community-right {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 20px;
+    }
+
+    /* Denim flower decor */
+    .denim-flower {
+      width: 120px;
+      height: 120px;
+      background: #2288ee;
+      border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+      position: absolute;
+      top: 20px;
+      right: 200px;
+      z-index: 3;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+    /* Eye photo placeholder */
+    .eye-crop {
+      width: 180px;
+      height: 120px;
+      background: linear-gradient(135deg, #c0b0a0 0%, #d0c8c0 100%);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+
+    /* BW photo placeholders */
+    .photo-bw {
+      width: 220px;
+      height: 270px;
+      background: linear-gradient(135deg, #555 0%, #999 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+      filter: grayscale(1);
+      overflow: hidden;
+    }
+    .photo-bw-2 {
+      width: 240px;
+      height: 280px;
+      background: linear-gradient(135deg, #666 0%, #aaa 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+      filter: grayscale(1);
+      overflow: hidden;
+    }
+
+    .community-logo-wrap {
+      position: relative;
+      z-index: 2;
+      margin-top: 40px;
+    }
+    .community-logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 52px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .social-pills {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .social-pill {
+      padding: 10px 24px;
+      border: 2px solid #fff;
+      border-radius: 100px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .social-pill:hover {
+      background: #fff;
+      color: #FF71D7;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #1A78FF;
+      padding: 50px 40px 30px;
+      color: #fff;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col a {
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+    .footer-col a:hover { opacity: 1; text-decoration: underline; }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 16px;
+    }
+    .footer-policy {
+      font-size: 15px;
+      color: #fff;
+      text-decoration: underline;
+      opacity: 0.9;
+    }
+    .footer-work-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #fff;
+      color: #1A78FF;
+      font-family: 'Anton', sans-serif;
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 100px;
+      transition: transform 0.2s;
+      white-space: nowrap;
+    }
+    .footer-work-btn:hover { transform: scale(1.03); }
+
+    .footer-disclaimer {
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 20px;
+      max-width: 600px;
+    }
+
+    /* ─── ANIMATIONS ─── */
+
+    /* Страница появляется при загрузке */
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    body {
+      animation: fadeInPage 0.6s ease both;
+    }
+
+    /* Базовое скрытое состояние */
+    .anim-hidden {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Фото — появляется чуть иначе */
+    .hero-photo.anim-hidden,
+    .contact-photo-wrap.anim-hidden {
+      transform: translateY(24px) scale(0.97);
+    }
+
+    /* Карточки — лёгкий масштаб */
+    .win-card.anim-hidden,
+    .review-card.anim-hidden,
+    .useful-cards-wrap.anim-hidden {
+      transform: translateY(40px) scale(0.98);
+    }
+
+    /* Заголовки — появляются снизу */
+    .contact-new-title.anim-hidden,
+    .reviews-hero.anim-hidden {
+      transform: translateY(50px);
+    }
+
+    /* Видимое состояние */
+    .is-visible {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    /* Плавный hover на nav-ссылках */
+    .nav-links a {
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .nav-links a:hover {
+      transform: translateY(-1px);
+    }
+
+    /* Плавный hover на карточках проектов */
+    .win-card {
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+
+    /* Плавный hover на карточках отзывов */
+    .review-card {
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    }
+
+    /* Плавный hover на useful карточках */
+    .useful-card {
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+
+    /* Кнопки — мягкий scale */
+    .contact-new-btn,
+    .useful-btn,
+    .filter-btn,
+    .fast-order-btn {
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .contact-new-btn:hover,
+    .useful-btn:hover {
+      transform: translateY(-2px);
+    }
+    .filter-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    /* ══════════════════════════════
+       ПЛАНШЕТ  (≤ 1024px)
+    ══════════════════════════════ */
+    @media (max-width: 1024px) {
+      /* Nav */
+      nav { padding: 16px 24px; }
+
+      /* Hero */
+      .hero-left { padding: 100px 32px 60px 32px; }
+      .hero-title { font-size: clamp(72px, 10vw, 130px); }
+
+      /* Principles */
+      #principles { padding: 60px 24px 80px; gap: 40px; }
+      #principles { grid-template-columns: 1fr 1fr; }
+      .principles-label { font-size: clamp(60px, 10vw, 130px); }
+
+      /* Useful */
+      #useful { padding: 60px 24px; }
+      .useful-cards-wrap { padding-right: 0; justify-content: center; gap: 16px; }
+      .useful-card { width: 220px; }
+
+      /* Projects */
+      #projects { padding: 60px 24px; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .projects-title { font-size: clamp(70px, 11vw, 160px); }
+
+      /* Reviews */
+      #reviews { padding: 60px 24px; }
+      .reviews-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .reviews-title { font-size: clamp(60px, 10vw, 140px); }
+
+      /* Contact */
+      #contact { padding: 60px 24px; }
+      .contact-new-inner { gap: 40px; }
+
+      /* Footer */
+      #footer { padding: 36px 24px; }
+      .footer-inner { flex-wrap: wrap; gap: 20px; }
+    }
+
+    /* ══════════════════════════════
+       МОБИЛКА  (≤ 640px)
+    ══════════════════════════════ */
+    @media (max-width: 640px) {
+      /* Nav */
+      nav { padding: 14px 20px; }
+      .nav-logo { font-size: 20px; }
+      .btn-work { font-size: 12px; padding: 10px 16px; }
+
+      /* Hero — стек вертикально */
+      #hero { height: auto; min-height: 100svh; }
+      .hero-inner { flex-direction: column; }
+      .hero-left {
+        flex: none;
+        padding: 100px 20px 40px;
+        width: 100%;
+      }
+      .hero-photo {
+        flex: none;
+        width: 100%;
+        height: 60vw;
+      }
+      .hero-title { font-size: clamp(52px, 16vw, 90px); letter-spacing: 1px; }
+      .hero-desc p { font-size: 14px; }
+      .hero-cta { flex-direction: column; align-items: flex-start; gap: 16px; }
+
+      /* Principles */
+      #principles {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 48px 20px 60px;
+        gap: 32px;
+      }
+      /* На мобилке — сначала заголовок, потом карточки */
+      .principles-left { order: 2; width: 100%; }
+      .principles-right { order: 1; width: 100%; }
+      .principles-label { font-size: clamp(52px, 18vw, 100px); margin-bottom: 12px; }
+      .principles-sub { max-width: 100%; }
+      .principles-cards { grid-template-columns: 1fr 1fr; }
+      .prin-card { min-height: 160px; padding: 20px 16px; }
+      .prin-body { margin-top: 24px; }
+      .prin-title { font-size: 14px; }
+      .prin-desc { font-size: 12px; }
+
+      /* Useful */
+      #useful { padding: 48px 20px; display: flex; flex-direction: column; }
+      .useful-cards-wrap {
+        flex-direction: column;
+        align-items: center;
+        padding-right: 0;
+        gap: 16px;
+      }
+      .useful-card { width: 100%; max-width: 320px; }
+      .useful-bottom-text {
+        position: static;
+        order: -1;
+        font-size: clamp(52px, 18vw, 90px);
+        margin-bottom: 24px;
+        letter-spacing: -2px;
+      }
+      .useful-cards-wrap { order: 1; }
+
+      /* Projects */
+      #projects { padding: 48px 20px 60px; }
+      .projects-title { font-size: clamp(48px, 16vw, 90px); letter-spacing: -2px; }
+      .projects-filters { flex-wrap: wrap; gap: 8px; justify-content: center; }
+      .filter-btn { font-size: 11px; padding: 8px 14px; }
+      .projects-grid { grid-template-columns: 1fr; gap: 16px; }
+
+      /* Reviews */
+      #reviews { padding: 48px 20px 60px; }
+      .reviews-title { font-size: clamp(48px, 18vw, 90px); }
+      .reviews-grid { grid-template-columns: 1fr; gap: 16px; }
+      .reviews-tag { font-size: 11px; padding: 6px 12px; }
+
+      /* Contact */
+      #contact { padding: 48px 20px 60px; }
+      .contact-new-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 32px;
+      }
+      .contact-new-title { font-size: clamp(48px, 16vw, 90px); }
+      .contact-new-sub { font-size: 14px; }
+      .contact-new-btns { flex-direction: column; gap: 12px; width: 100%; }
+      .contact-new-btn { text-align: center; padding: 14px 24px; }
+      .contact-photo { max-width: 260px; }
+
+      /* Footer */
+      #footer { padding: 32px 20px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .footer-links { flex-direction: column; gap: 12px; }
+      .footer-copy { font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">SPARKSY</a>
+  <ul class="nav-links">
+    <li><a href="#projects" class="nav-link">Кейсы</a></li>
+    <li><a href="#reviews" class="nav-link">Отзывы</a></li>
+    <li><a href="#contact" class="btn-work">НАПИСАТЬ МНЕ</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrap">
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+
+      <div class="hero-label">Маркетолог · Performance</div>
+
+      <h1 class="hero-title">
+        ANDREY<br/>SPARKSY
+      </h1>
+
+      <div class="hero-desc">
+        <p>С помощью моего маркетинга компании не просто тратят деньги — они закрывают план по заявкам и окупаемости</p>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#contact" class="btn-cta-primary">
+          <span class="btn-cta-bracket">&lt;</span>
+          <span class="btn-cta-text">Обсудить проект</span>
+          <span class="btn-cta-bracket">&gt;</span>
+        </a>
+        <span class="hero-scroll-hint">или скролль вниз</span>
+      </div>
+
+    </div>
+
+    <div class="hero-photo">
+      <img src="photo.jpg" alt="Andrey Sparksy"/>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section id="principles">
+
+  <!-- Левая колонка: карточки 2×2 -->
+  <div class="principles-left">
+    <div class="principles-cards">
+      <div class="prin-card">
+        <div class="prin-num">1.</div>
+        <div class="prin-body">
+          <div class="prin-title">Глубокая аналитика</div>
+          <div class="prin-desc">Собираю данные по рекламе, изучаю записи созвонов, анализирую прошлые результаты. Чаще всего ко мне приходит бизнес с уже имеющимся опытом — и не всегда успешным. За 7–14 дней я формирую чёткую базу, которая даёт результат.</div>
+        </div>
+      </div>
+      <div class="prin-card">
+        <div class="prin-num">2.</div>
+        <div class="prin-body">
+          <div class="prin-title">Запуск рекламы</div>
+          <div class="prin-desc">После аналитики — запускаю рекламу своими руками. Беру то, что уже работало, и усиливаю. Если что-то не работало — меняю на связку, которая даст результат. В течение следующих 14 дней появляются первые заявки, созвоны и продажи.</div>
+        </div>
+      </div>
+      <div class="prin-card">
+        <div class="prin-num">3.</div>
+        <div class="prin-body">
+          <div class="prin-title">Строю аналитику</div>
+          <div class="prin-desc">Внедряю в проект свою аналитику, которая позволяет анализировать всю воронку целиком и строить гипотезы на получение прибыли.</div>
+        </div>
+      </div>
+      <div class="prin-card">
+        <div class="prin-num">4.</div>
+        <div class="prin-body">
+          <div class="prin-title">Выходим на продажи и масштабируемся</div>
+          <div class="prin-desc">Когда мы находим воронку, которая даёт продажи, то начинаем сразу же масштабировать результат, сохраняя при этом адекватную стоимость клиента. Окупаемость со второго месяца.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Правая колонка: заголовок + текст -->
+  <div class="principles-right">
+    <div class="principles-label">FACTS</div>
+    <p class="principles-sub">Я строю воронки, которые работают сами: трафик идёт в бота, бот греет, сайт продаёт, консультация закрывает. Каждый элемент на месте — и проект выходит в плюс уже во второй месяц.</p>
+    <a href="#projects" class="about-video-btn" style="justify-content:flex-start; font-size:11px; letter-spacing:1.5px; color:#cc2200;">
+      Смотреть кейсы →
+    </a>
+  </div>
+
+</section>
+
+<!-- USEFUL -->
+<section id="useful">
+  <div class="useful-bg"></div>
+
+  <div class="useful-cards-wrap">
+
+    <div class="useful-card">
+      <div class="useful-card-img useful-img-tg">
+        <img src="1.webp" alt=""/>
+      </div>
+      <div class="useful-card-body">
+        <div class="useful-card-title">Мой блог — телеграм</div>
+        <div class="useful-card-sub">мой тг-дневник</div>
+        <a href="https://t.me/andreysparksy" target="_blank" class="useful-btn">подписаться</a>
+      </div>
+    </div>
+
+    <div class="useful-card">
+      <div class="useful-card-img useful-img-cv">
+        <img src="2.webp" alt=""/>
+      </div>
+      <div class="useful-card-body">
+        <div class="useful-card-title">Моё резюме</div>
+        <div class="useful-card-sub">опыт, навыки и достижения</div>
+        <a href="https://docs.google.com/document/d/1dxFmIqRjubpq3WHGhNsncJ6m4rk7X8dEGFt8TmIZMyI/edit?usp=sharing" target="_blank" class="useful-btn">читать</a>
+      </div>
+    </div>
+
+    <div class="useful-card">
+      <div class="useful-card-img useful-img-articles">
+        <img src="3.png" alt=""/>
+      </div>
+      <div class="useful-card-body">
+        <div class="useful-card-title">Полезные статьи</div>
+        <div class="useful-card-sub">о маркетинге простым языком</div>
+        <a href="https://teletype.in/@mdmd" target="_blank" class="useful-btn">читать</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="useful-bottom-text">ABOUT ME</div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-title-wrap">
+    <h2 class="projects-title">
+      <span>CASE STUDIES</span>
+    </h2>
+  </div>
+
+  <div class="projects-filters">
+    <button class="filter-btn active" onclick="filterProjects('all')">Все работы</button>
+    <button class="filter-btn" onclick="filterProjects('marketing')">Интернет-маркетинг</button>
+    <button class="filter-btn" onclick="filterProjects('production')">Продюсирование</button>
+    <button class="filter-btn" onclick="filterProjects('vkads')">VK Ads</button>
+    <button class="filter-btn" onclick="filterProjects('avito')">Avito</button>
+    <button class="filter-btn" onclick="filterProjects('other')">Остальное</button>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- кейс 1: инфобизнес -->
+    <a href="https://t.me/c/3766919436/15" target="_blank" style="text-decoration:none;color:inherit;">
+    <div class="win-card" data-category="production marketing">
+      <div class="win-bar" style="background:#f0f0f0">
+        <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888">инфобизнес</span>
+        <div class="win-controls">
+          <span>○</span><span>_</span><span>×</span>
+        </div>
+      </div>
+      <div class="win-thumb-placeholder" style="position:relative;background:#111;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px;gap:16px;overflow:hidden;">
+        <img src="case 1-new.webp" alt="" class="card-photo"/>
+        <div class="card-stats">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">18 млн+</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">заработали за год</div>
+          </div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">3 000</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">подписчиков</div>
+          </div>
+        </div>
+      </div>
+      <div class="win-info">
+        <div class="win-project-name">Обучение менеджеров отдела продаж</div>
+        <div class="win-project-type">Заработали более 18 млн. за год и увеличили кол-во подписчиков до 3 000 человек</div>
+      </div>
+    </div>
+    </a>
+
+    <!-- кейс 2: маркетинг ткани -->
+    <div class="win-card" data-category="marketing">
+      <div class="win-bar" style="background:#f0f0f0">
+        <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888">маркетинг</span>
+        <div class="win-controls">
+          <span>○</span><span>_</span><span>×</span>
+        </div>
+      </div>
+      <div class="win-thumb-placeholder" style="position:relative;background:#1a1a1a;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px;gap:16px;overflow:hidden;">
+        <img src="case 2.webp" alt="" class="card-photo"/>
+        <div class="card-stats">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">500к+</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">заработали рублей</div>
+          </div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">40к</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">потрачено на рекламу</div>
+          </div>
+        </div>
+      </div>
+      <div class="win-info">
+        <div class="win-project-name">Ткани на заказ</div>
+        <div class="win-project-type">Заработали более 500 000 ₽ потратив 40 000 ₽ на рекламу</div>
+      </div>
+    </div>
+
+    <!-- кейс: мебель на заказ -->
+    <div class="win-card" data-category="marketing vkads">
+      <div class="win-bar" style="background:#f0f0f0">
+        <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888">vkads</span>
+        <div class="win-controls">
+          <span>○</span><span>_</span><span>×</span>
+        </div>
+      </div>
+      <div class="win-thumb-placeholder" style="position:relative;background:#1a1a1a;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px;gap:16px;overflow:hidden;">
+        <img src="case 3.webp" alt="" class="card-photo"/>
+        <div class="card-stats">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">25</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">заявок за 14 дней</div>
+          </div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">14</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">дней кампании</div>
+          </div>
+        </div>
+      </div>
+      <div class="win-info">
+        <div class="win-project-name">Мебель на заказ</div>
+        <div class="win-project-type">Сделали 25 заявок в мебели на заказ за 14 дней</div>
+      </div>
+    </div>
+
+    <!-- кейс: автообзвон -->
+    <div class="win-card" data-category="other">
+      <div class="win-bar" style="background:#f0f0f0">
+        <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888">остальное</span>
+        <div class="win-controls">
+          <span>○</span><span>_</span><span>×</span>
+        </div>
+      </div>
+      <div class="win-thumb-placeholder" style="position:relative;background:#1a1a1a;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px;gap:16px;overflow:hidden;">
+        <img src="contacts.webp" alt="" class="card-photo"/>
+        <div class="card-stats">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">860к+</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">рублей прибыли</div>
+          </div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">1</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">инструмент — обзвон</div>
+          </div>
+        </div>
+      </div>
+      <div class="win-info">
+        <div class="win-project-name">Автообзвон</div>
+        <div class="win-project-type">Привлекли более 860 000 ₽ прибыли с помощью автообзвона</div>
+      </div>
+    </div>
+
+    <!-- кейс 3: арбитраж -->
+    <div class="win-card" data-category="other">
+      <div class="win-bar" style="background:#f0f0f0">
+        <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888">остальное</span>
+        <div class="win-controls">
+          <span>○</span><span>_</span><span>×</span>
+        </div>
+      </div>
+      <div class="win-thumb-placeholder" style="position:relative;background:#0d0d0d;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px;gap:16px;overflow:hidden;">
+        <img src="case 5.webp" alt="" class="card-photo"/>
+        <div class="card-stats">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">20+</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">аккаунтов в работе</div>
+          </div>
+        </div>
+      </div>
+      <div class="win-info">
+        <div class="win-project-name">Арбитраж</div>
+        <div class="win-project-type">Занимался выстраиванием системы по УБТ трафику на YouTube и TikTok</div>
+      </div>
+    </div>
+
+    <!-- кейс 4: vkads -->
+    <div class="win-card" data-category="vkads">
+      <div class="win-bar" style="background:#f0f0f0">
+        <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888">VK Ads</span>
+        <div class="win-controls">
+          <span>○</span><span>_</span><span>×</span>
+        </div>
+      </div>
+      <div class="win-thumb-placeholder" style="position:relative;background:#0d1a33;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px;gap:16px;overflow:hidden;">
+        <img src="case 6.webp" alt="" class="card-photo"/>
+        <div class="card-stats">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">350+</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">заявок за месяц</div>
+          </div>
+        </div>
+      </div>
+      <div class="win-info">
+        <div class="win-project-name">Обучение ассистентов</div>
+        <div class="win-project-type">Привели более 350 заявок за месяц по обучению ассистентов</div>
+      </div>
+    </div>
+
+    <!-- кейс 5: avito -->
+    <div class="win-card" data-category="avito">
+      <div class="win-bar" style="background:#f0f0f0">
+        <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888">Avito</span>
+        <div class="win-controls">
+          <span>○</span><span>_</span><span>×</span>
+        </div>
+      </div>
+      <div class="win-thumb-placeholder" style="position:relative;background:#00a652;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px;gap:16px;overflow:hidden;">
+        <div style="position:relative;z-index:1;display:flex;gap:24px;">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">350+</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.8);margin-top:4px;">заявок в месяц</div>
+          </div>
+        </div>
+      </div>
+      <div class="win-info">
+        <div class="win-project-name">Инвестиции в готовый бизнес</div>
+        <div class="win-project-type">Выстроил процесс и вышел на ежемесячный поток заявок с Avito по 350 в месяц</div>
+      </div>
+    </div>
+
+    <!-- кейс 6: инфобизнес копирайтеры -->
+    <div class="win-card" data-category="production marketing">
+      <div class="win-bar" style="background:#f0f0f0">
+        <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888">инфобизнес</span>
+        <div class="win-controls">
+          <span>○</span><span>_</span><span>×</span>
+        </div>
+      </div>
+      <div class="win-thumb-placeholder" style="position:relative;background:#111;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px;gap:16px;overflow:hidden;">
+        <div style="position:relative;z-index:1;display:flex;gap:24px;">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">400к</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">рублей в месяц</div>
+          </div>
+        </div>
+      </div>
+      <div class="win-info">
+        <div class="win-project-name">Обучение копирайтеров</div>
+        <div class="win-project-type">Выстроил систему по привлечению клиентов и вышли на обороты 400 000 ₽ в месяц</div>
+      </div>
+    </div>
+
+    <!-- кейс 7: инфобизнес tg -->
+    <div class="win-card" data-category="production marketing">
+      <div class="win-bar" style="background:#f0f0f0">
+        <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888">инфобизнес</span>
+        <div class="win-controls">
+          <span>○</span><span>_</span><span>×</span>
+        </div>
+      </div>
+      <div class="win-thumb-placeholder" style="position:relative;background:#0d1f38;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px;gap:16px;overflow:hidden;">
+        <img src="case 9.webp" alt="" class="card-photo"/>
+        <div class="card-stats">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">550к</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">запуск</div>
+          </div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">38к</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">расходы</div>
+          </div>
+        </div>
+      </div>
+      <div class="win-info">
+        <div class="win-project-name">Обучение профессии в TG</div>
+        <div class="win-project-type">Сделали запуск на 550 000 ₽ при расходах 38 000 ₽</div>
+      </div>
+    </div>
+
+
+    <!-- кейс 9: vkads мебель -->
+    <div class="win-card" data-category="vkads">
+      <div class="win-bar" style="background:#f0f0f0">
+        <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888">VK Ads</span>
+        <div class="win-controls">
+          <span>○</span><span>_</span><span>×</span>
+        </div>
+      </div>
+      <div class="win-thumb-placeholder" style="position:relative;background:#0d1a33;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px;gap:16px;overflow:hidden;">
+        <img src="case 10.png" alt="" class="card-photo"/>
+        <div class="card-stats">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">80+</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">заявок в месяц</div>
+          </div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">250к+</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">рублей дохода</div>
+          </div>
+        </div>
+      </div>
+      <div class="win-info">
+        <div class="win-project-name">Мебель на заказ</div>
+        <div class="win-project-type">Сделали более 80 заявок в месяц и вышли на доход от 250 000 ₽ с VK Ads</div>
+      </div>
+    </div>
+
+    <!-- кейс 10: сайты -->
+    <div class="win-card" data-category="other">
+      <div class="win-bar" style="background:#f0f0f0">
+        <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888">остальное</span>
+        <div class="win-controls">
+          <span>○</span><span>_</span><span>×</span>
+        </div>
+      </div>
+      <div class="win-thumb-placeholder" style="position:relative;background:#1a1a1a;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px;gap:16px;overflow:hidden;">
+        <img src="case 11.webp" alt="" class="card-photo"/>
+        <div class="card-stats">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">10+</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">landing page</div>
+          </div>
+        </div>
+      </div>
+      <div class="win-info">
+        <div class="win-project-name">Создание сайтов</div>
+        <div class="win-project-type">С командой создали более 10 landing page — от копирайтинга до дизайна</div>
+      </div>
+    </div>
+
+    <!-- кейс 8: avito клининг -->
+    <div class="win-card" data-category="avito">
+      <div class="win-bar" style="background:#f0f0f0">
+        <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888">Avito</span>
+        <div class="win-controls">
+          <span>○</span><span>_</span><span>×</span>
+        </div>
+      </div>
+      <div class="win-thumb-placeholder" style="position:relative;background:#1a1a1a;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px;gap:16px;overflow:hidden;">
+        <img src="case 12.png" alt="" class="card-photo"/>
+        <div class="card-stats">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">200+</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.8);margin-top:4px;">заявок</div>
+          </div>
+        </div>
+      </div>
+      <div class="win-info">
+        <div class="win-project-name">Клининг в B2B</div>
+        <div class="win-project-type">Выстроил поток заявок в клининге. Сделали более 200 заявок</div>
+      </div>
+    </div>
+
+    <!-- кейс: обучение маркетингу b2b -->
+    <div class="win-card" data-category="production marketing">
+      <div class="win-bar" style="background:#f0f0f0">
+        <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888">продюсирование</span>
+        <div class="win-controls">
+          <span>○</span><span>_</span><span>×</span>
+        </div>
+      </div>
+      <div class="win-thumb-placeholder" style="position:relative;background:#1a1a1a;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:28px;gap:16px;overflow:hidden;">
+        <div class="card-stats">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">480к</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">рублей прибыли</div>
+          </div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;">14</div>
+            <div style="font-size:12px;color:#ccc;margin-top:4px;">дней / без трафика</div>
+          </div>
+        </div>
+      </div>
+      <div class="win-info">
+        <div class="win-project-name">Обучение маркетингу для B2B</div>
+        <div class="win-project-type">Сделали за 14 дней 480 000 ₽ прибыли без вложений в трафик</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+
+  <div class="reviews-hero">
+    <div class="reviews-title">REVIEWS</div>
+  </div>
+
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="review-quote-icon">"</div>
+      <div class="review-text">«Работаем с Андреем недолго. Всего месяц+. Но даже этого времени мне хватило, чтобы понять, насколько эффективно он работает. При вложении 25к+ — уже сделали около 400к выручки. Но что ещё важнее для меня, так это то, как Андрей выстраивает работу. Организация команды, продажи, контент-план и все эти процессы он взял на себя. Даже курирует учеников»</div>
+      <a href="https://t.me/c/3045384826/4" target="_blank" class="review-original">оригинал отзыва</a>
+      <div class="review-divider"></div>
+      <div class="review-name"><a href="https://t.me/textering" target="_blank" style="color:inherit;text-decoration:none;">Текстеринг</a></div>
+      <div class="review-role"><a href="https://t.me/textering" target="_blank" style="color:inherit;text-decoration:none;">@textering</a></div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote-icon">"</div>
+      <div class="review-text">«Очень нравится как ты работаешь. Я сейчас не делаю контент, но все равно охваты стали даже лучше, чем были и к тому же люди стали оставлять заявки»</div>
+      <a href="https://t.me/c/3045384826/5" target="_blank" class="review-original">оригинал отзыва</a>
+      <div class="review-divider"></div>
+      <div class="review-name"><a href="https://t.me/nacopywritila" target="_blank" style="color:inherit;text-decoration:none;">Наталья Скачкова</a></div>
+      <div class="review-role"><a href="https://t.me/nacopywritila" target="_blank" style="color:inherit;text-decoration:none;">@nacopywritila</a></div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote-icon">"</div>
+      <div class="review-text">«Андрей не просто маркетолог, а даже операционный директор. Многие процессы взял на себя и знает как вывести проект на 2, 3 или 5 млн. рублей»</div>
+      <a href="https://t.me/c/3045384826/2" target="_blank" class="review-original">оригинал отзыва</a>
+      <div class="review-divider"></div>
+      <div class="review-name"><a href="https://t.me/ziuzikfrilans" target="_blank" style="color:inherit;text-decoration:none;">Михаил Зюльганов</a></div>
+      <div class="review-role"><a href="https://t.me/ziuzikfrilans" target="_blank" style="color:inherit;text-decoration:none;">@ziuzikfrilans</a></div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote-icon">"</div>
+      <div class="review-text">«Работали с Андреем над лендингом для онлайн-фитнеса. Задача была конвертировать трафик в клиентов — справились на 100%, всё в срок и практически без правок. Главный плюс — работа полностью под ключ: бриф в начале, утверждение дизайна и приёмка в конце. Никаких лишних вовлечений и заморочек. Продолжаю сотрудничество и рекомендую Андрея как надёжного подрядчика. Результат более чем доволен»</div>
+      <a href="https://t.me/c/3045384826/11" target="_blank" class="review-original">оригинал отзыва</a>
+      <div class="review-divider"></div>
+      <div class="review-name"><a href="https://t.me/Vladislav_saibel" target="_blank" style="color:inherit;text-decoration:none;">Владислав</a></div>
+      <div class="review-role"><a href="https://t.me/Vladislav_saibel" target="_blank" style="color:inherit;text-decoration:none;">@Vladislav_saibel</a></div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote-icon">"</div>
+      <div class="review-text">«Хочу выразить искреннюю благодарность за профессиональную разработку сайта! Поразила скорость работы — всего 4 дня от идеи до готового результата. Но главное — качество: клиенты в восторге от того, как всё получилось. Рекомендую»</div>
+      <a href="https://t.me/c/3045384826/12" target="_blank" class="review-original">оригинал отзыва</a>
+      <div class="review-divider"></div>
+      <div class="review-name"><a href="https://t.me/AleksanrCHA" target="_blank" style="color:inherit;text-decoration:none;">Александр</a></div>
+      <div class="review-role"><a href="https://t.me/AleksanrCHA" target="_blank" style="color:inherit;text-decoration:none;">@AleksanrCHA</a></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-new-inner">
+
+    <div class="contact-photo-wrap">
+      <div class="contact-clip">
+        <svg width="40" height="60" viewBox="0 0 40 60" fill="none">
+          <path d="M20 4C13 4 8 9 8 16V42C8 51 13 56 20 56C27 56 32 51 32 42V18C32 12 28 8 22 8C16 8 13 12 13 18V40C13 44 16 47 20 47C24 47 27 44 27 40V18" stroke="#aaa" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <img src="contacts.webp" alt="Andrey" class="contact-photo"/>
+    </div>
+
+    <h2 class="contact-new-title">GO TO JOB</h2>
+    <p class="contact-new-sub">
+      Моя работа стоит <span class="contact-accent">от 80 000 ₽ в месяц.</span> Проекты, с которыми я работал, выходили на <span class="contact-accent">1–2 млн ₽ выручки в месяц.</span> Один из них за первый месяц сделал <span class="contact-accent">400 000 ₽ при вложениях 40 000 ₽.</span><span class="contact-note">Это не обещание — это статистика из реальных проектов. Окупаемость — со второго месяца.</span>
+    </p>
+
+    <div class="contact-new-btns">
+      <a href="https://t.me/andreysparksy" target="_blank" class="contact-new-btn btn-tg">Telegram</a>
+      <a href="#" target="_blank" class="contact-new-btn btn-vk">VK</a>
+      <a href="#" target="_blank" class="contact-new-btn btn-hh">HH</a>
+    </div>
+
+  </div>
+</section>
+
+
+
+<footer id="footer">
+  <div class="footer-inner">
+
+    <div class="footer-logo">SPARKSY</div>
+
+    <div class="footer-nav-group">
+      <div class="footer-nav-label">Навигация</div>
+      <a href="#projects">Кейсы</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="https://docs.google.com/document/d/1dxFmIqRjubpq3WHGhNsncJ6m4rk7X8dEGFt8TmIZMyI/edit?usp=sharing" target="_blank">Резюме</a>
+      <a href="https://teletype.in/@mdmd" target="_blank">Полезные статьи</a>
+    </div>
+
+    <div class="footer-nav-group">
+      <div class="footer-nav-label">Мои личные соцсети</div>
+      <a href="https://t.me/andreysparksy" target="_blank">Telegram</a>
+      <a href="https://vk.com/sparksy" target="_blank">VK</a>
+      <a href="https://nizhny-tagil.hh.ru/resume/21996205ff087243420039ed1f38436c6e6648" target="_blank">HH</a>
+    </div>
+
+    <div class="footer-copy">© 2025 Andrey Sparksy.<br/>Перформанс-маркетолог.</div>
+
+  </div>
+</footer>
+
+<style>
+  #footer {
+    background: #000;
+    color: #fff;
+    padding: 48px;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .footer-logo {
+    font-family: 'Anton', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .footer-nav-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-nav-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 4px;
+  }
+  .footer-nav-group a {
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-nav-group a:hover { color: #fff; }
+  .footer-copy {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+    text-align: right;
+    flex-shrink: 0;
+  }
+</style>
+
+<script>
+  function filterProjects(category) {
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    document.querySelectorAll('.win-card').forEach(card => {
+      const cats = card.dataset.category ? card.dataset.category.split(' ') : [];
+      if (category === 'all' || cats.includes(category)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  /* ── Scroll animations ── */
+  const observerOptions = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll(
+    '.hero-left, .hero-photo, ' +
+    '.principles-label, .principles-heading, .principles-sub, .prin-card, ' +
+    '.useful-cards-wrap, .useful-bottom-text, ' +
+    '.projects-title-wrap, .projects-filters, .win-card, ' +
+    '.reviews-hero, .review-card, ' +
+    '.contact-photo-wrap, .contact-new-title, .contact-new-sub, .contact-new-btns, ' +
+    '.about-stat, .footer-col, .footer-right'
+  ).forEach((el, i) => {
+    el.classList.add('anim-hidden');
+    el.style.transitionDelay = (i % 6) * 0.07 + 's';
+    observer.observe(el);
+  });
+
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = 'ОТПРАВЛЕНО ✓';
+    btn.style.background = '#005500';
+    setTimeout(() => {
+      btn.textContent = 'ОТПРАВИТЬ';
+      btn.style.background = '#000';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+
+</div><!-- end .page-wrap -->
+
+</body>
+</html>
